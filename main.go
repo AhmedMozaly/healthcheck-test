@@ -1,8 +1,10 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
+	"os"
 )
 
 func main() {
@@ -20,9 +22,13 @@ func main() {
 		rw.Write([]byte("I'm not healthy :("))
 	})
 
-	log.Print("starting server on port 9999")
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "9999"
+	}
+	log.Printf("starting server on port %s", port)
 	server := &http.Server{
-		Addr:    "0.0.0.0:9999",
+		Addr:    fmt.Sprintf("0.0.0.0:%s", port),
 		Handler: mux,
 	}
 
