@@ -20,7 +20,7 @@ func main() {
 
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "9999"
+		port = "6869"
 	}
 	log.Printf("starting server on port %s", port)
 	server := &http.Server{
