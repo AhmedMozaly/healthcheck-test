@@ -17,6 +17,10 @@ func main() {
 		rw.WriteHeader(500)
 		rw.Write([]byte("I'm not healthy :("))
 	})
+	mux.HandleFunc("/healthzz", func(rw http.ResponseWriter, r *http.Request) {
+		rw.WriteHeader(503)
+		rw.Write([]byte("I'm really not healthy :(((("))
+	})
 
 	port := os.Getenv("PORT")
 	if port == "" {
