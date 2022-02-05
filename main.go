@@ -11,7 +11,7 @@ func main() {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/health", func(rw http.ResponseWriter, r *http.Request) {
 		rw.WriteHeader(200)
-		rw.Write([]byte("I'm healthy!!"))
+		rw.Write([]byte("I'm healthy!! v2"))
 	})
 	mux.HandleFunc("/healthz", func(rw http.ResponseWriter, r *http.Request) {
 		rw.WriteHeader(500)
