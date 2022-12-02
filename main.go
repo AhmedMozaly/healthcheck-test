@@ -13,10 +13,12 @@ func main() {
 		rw.WriteHeader(200)
 		rw.Write([]byte("I'm healthy!! v2"))
 	})
+
 	mux.HandleFunc("/healthz", func(rw http.ResponseWriter, r *http.Request) {
 		rw.WriteHeader(500)
 		rw.Write([]byte("I'm not healthy :("))
 	})
+
 	mux.HandleFunc("/healthzz", func(rw http.ResponseWriter, r *http.Request) {
 		rw.WriteHeader(503)
 		rw.Write([]byte("I'm really not healthy :(((("))
